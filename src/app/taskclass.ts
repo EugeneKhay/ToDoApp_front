@@ -3,4 +3,5 @@ export class Task {
     text : string;
     tag : string;
     status : string;
+    // date: Date;
 }

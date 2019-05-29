@@ -4,3 +4,12 @@
 .input-group {
     color: blueviolet;
 }
+.title {
+    text-align: center; 
+    font-family: 'Indie Flower';
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.task_item {
+    margin: 15px;
+}

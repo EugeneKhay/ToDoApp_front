@@ -1,13 +1,32 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<!-- <app-task></app-task> -->
-<h2>ToDo Application</h2>
-<nav>
-    <a routerLink='/dashboard'> Top tasks </a>
-    <a routerLink='/todo'> All tasks </a>
-    <a routerLink='/messages'> Messages </a>
-</nav>
-<!-- <app-messages></app-messages> -->
+<link href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap" rel="stylesheet">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" >
+    <a class="navbar-brand" href="/">ToDoApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/dashboard'> Hot tasks </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/todo'>All tasks</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink='/messages'>Messages</a>
+        </li>
+      </ul>
+    </div>
+    <div class="today">Today: {{today | date}}</div>
+  </nav>
 <router-outlet></router-outlet>
+
+<nav class="navbar fixed-bottom navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+        <a class="navbar-brand" href="#">Fixed bottom</a>
+</nav>
 
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

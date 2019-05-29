@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getMocks(): void {
-    this.taskService.getMockTasks()
+    this.taskService.getRealTasks()
     .subscribe(tasks => this.tasks = tasks.slice(1, 5));
   }
 

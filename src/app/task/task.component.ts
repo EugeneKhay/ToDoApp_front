@@ -22,8 +22,13 @@ export class TaskComponent implements OnInit {
       this.counter++;
   }
 
+  // getMocks(): void {
+  //   this.taskService.getRealTasks()
+  //   .subscribe(tasks => this.tasks = tasks);
+  // }
+
   getMocks(): void {
-    this.taskService.getRealTasks()
+    this.taskService.getMockTasks()
     .subscribe(tasks => this.tasks = tasks);
   }
 

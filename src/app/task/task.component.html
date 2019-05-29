@@ -1,38 +1,75 @@
-<h1 style="text-align: center">ALL TASKS</h1>
 
-<div class="mb-4 ml-5">
-    <!-- <label >Task text:
-      <input #taskText />
-    </label> -->
-    <!-- (click) passes input value to add() and then clears the input -->
-    <!-- <button class="btn btn-primary" (click)="add(taskText.value); taskText.value=''"> -->
-    <button class="btn btn-primary" (click)="add(); taskText.value=''">
-      Add new task
-    </button>
+
+<div class="container">
+
+  <div class="row title">
+    <div class="col-sm">
+        <h1>ALL TASKS</h1>
+    </div>
+    <div class="col-sm-1">
+            <button type="button" class="btn btn-primary-outline" (click)="add(); taskText.value=''">
+                  <span> <img style="width: 37px" src="https://img.icons8.com/ios/50/000000/plus.png"> </span>      
+            </button>
+    </div>
+  </div>
+
+  <div class="row">
+      <ul class="tasks">
+
+          <div class="list-group">
+              <li *ngFor='let task of tasks'>
+                <div class="task_item">
+                    <div class="list-group-item list-group-item-action">
+                        <div class="d-flex w-100 justify-content-between">
+                          <h5 class="mb-1">{{task.text}}</h5>
+                          <small>{{task.status}}</small>
+                        </div>
+                        <p class="mb-1">#{{task.tag}}</p>
+                        <!-- <small>Donec id elit non mi porta.</small> -->
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">Task</span>
+                            </div>
+                            <textarea class="form-control" aria-label="With textarea" 
+                                      [(ngModel)]="task.text" (keyup)="save(task)">
+                            </textarea>
+                          </div>
+                          <button class="btn btn-info" (click)='onSelect(task)'> Change status</button>
+                          <button class="btn btn-danger" (click)="delete(task)">Delete</button>
+                    </div>
+                </div>
+              </li>
+          </div>
+
+
+          <div class="card-columns">
+            <li *ngFor='let task of tasks' >
+          <div class="card border-primary mb-3" style="width: 22rem;">
+              <div class="card-body">
+                <h4 class="card-title">{{task.text}}</h4>
+                <p class="card-text">Status: {{task.status}}</p>
+                <p class="card-text">Tag: {{task.tag}}</p> 
+                <p class="card-text">Date: {{task.date | date}}</p> 
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Task</span>
+                  </div>
+                  <textarea class="form-control" aria-label="With textarea" 
+                            [(ngModel)]="task.text" (keyup)="save(task)">
+                  </textarea>
+                </div>
+              </div>
+            <button class="btn btn-info" (click)='onSelect(task)'> Change status</button>
+            <button class="btn btn-danger" (click)="delete(task)">Delete</button>
+          </div>
+          <br>
+            </li>
+        </div>
+      </ul>
+  </div>
+
 </div>
 
-<ul class="tasks">
-    <div class="card-columns">
-  <li *ngFor='let task of tasks' >
-    <div class="card border-primary mb-3" style="width: 22rem;">
-        <div class="card-body">
-          <h4 class="card-title">{{task.text}}</h4>
-          <p class="card-text">Status: {{task.status}}</p>
-          <p class="card-text">Tag: {{task.tag}}</p>  
-          <div class="input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text">Task</span>
-            </div>
-            <textarea class="form-control" aria-label="With textarea" [(ngModel)]="task.text"></textarea>
-          </div>
-        </div>
-      <button class="btn btn-success" (click)="save(task)"> Save </button>
-      <button class="btn btn-info" (click)='onSelect(task)'> Change status</button>
-      <button class="btn btn-danger" (click)="delete(task)">Delete</button>
-    </div>
-    <br>
-  </li>
-  </div>
-</ul>
+
 
   
