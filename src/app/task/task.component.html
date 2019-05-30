@@ -8,67 +8,40 @@
     </div>
     <div class="col-sm-1">
             <button type="button" class="btn btn-primary-outline" (click)="add(); taskText.value=''">
-                  <span> <img style="width: 37px" src="https://img.icons8.com/ios/50/000000/plus.png"> </span>      
+                  <span> <img src="https://img.icons8.com/color/48/000000/add.png"> </span>      
             </button>
     </div>
   </div>
 
   <div class="row">
       <ul class="tasks">
-
           <div class="list-group">
-              <li *ngFor='let task of tasks'>
-                <div class="task_item">
-                    <div class="list-group-item list-group-item-action">
+                <div class="task_item col-sm-12">
+                    <div class="list-group-item list-group-item-action" *ngFor='let task of tasks'>
                         <div class="d-flex w-100 justify-content-between">
-                          <h5 class="mb-1">{{task.text}}</h5>
+                          <h3 class="mb-1" style="max-width: 900px">{{task.text}}</h3>
                           <small>{{task.status}}</small>
                         </div>
-                        <p class="mb-1">#{{task.tag}}</p>
-                        <!-- <small>Donec id elit non mi porta.</small> -->
+                        <br>
+                        <p class="mb-1">#{{task.tag}} id: {{task.id}}</p>
                         <div class="input-group">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">Task</span>
-                            </div>
                             <textarea class="form-control" aria-label="With textarea" 
                                       [(ngModel)]="task.text" (keyup)="save(task)">
                             </textarea>
-                          </div>
-                          <button class="btn btn-info" (click)='onSelect(task)'> Change status</button>
-                          <button class="btn btn-danger" (click)="delete(task)">Delete</button>
+                            <button type="button" (click)='onSelect(task)'> 
+                                <span><img src="https://img.icons8.com/ios/50/000000/change.png" alt="Change"></span>
+                            </button>
+                            <button type="button" (click)="delete(task)">
+                                <span><img src="https://img.icons8.com/doodle/48/000000/delete-sign.png" alt="Delete"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
-              </li>
           </div>
-
-
-          <div class="card-columns">
-            <li *ngFor='let task of tasks' >
-          <div class="card border-primary mb-3" style="width: 22rem;">
-              <div class="card-body">
-                <h4 class="card-title">{{task.text}}</h4>
-                <p class="card-text">Status: {{task.status}}</p>
-                <p class="card-text">Tag: {{task.tag}}</p> 
-                <p class="card-text">Date: {{task.date | date}}</p> 
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Task</span>
-                  </div>
-                  <textarea class="form-control" aria-label="With textarea" 
-                            [(ngModel)]="task.text" (keyup)="save(task)">
-                  </textarea>
-                </div>
-              </div>
-            <button class="btn btn-info" (click)='onSelect(task)'> Change status</button>
-            <button class="btn btn-danger" (click)="delete(task)">Delete</button>
-          </div>
-          <br>
-            </li>
-        </div>
       </ul>
   </div>
-
 </div>
+
 
 
 

@@ -1,6 +1,4 @@
-.card {
-    color: blue;
-}
+
 .input-group {
     color: blueviolet;
 }
@@ -12,4 +10,10 @@
 }
 .task_item {
     margin: 15px;
+    width: 1040px;
+    font-size: larger;
+}
+.list-group-item{
+    border-color: black; 
+    font-family: 'Indie Flower';
 }

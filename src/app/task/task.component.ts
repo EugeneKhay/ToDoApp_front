@@ -12,6 +12,7 @@ export class TaskComponent implements OnInit {
   tasks: Task[];
 
   counter = 0;
+
   
   onSelect(task1: Task) {
       if (this.counter > 2) this.counter = 0;
@@ -22,12 +23,12 @@ export class TaskComponent implements OnInit {
       this.counter++;
   }
 
-  // getMocks(): void {
+  // getTasks(): void {
   //   this.taskService.getRealTasks()
   //   .subscribe(tasks => this.tasks = tasks);
   // }
 
-  getMocks(): void {
+  getTasks(): void {
     this.taskService.getMockTasks()
     .subscribe(tasks => this.tasks = tasks);
   }
@@ -52,7 +53,6 @@ export class TaskComponent implements OnInit {
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.getMocks();
+    this.getTasks();
   }
-
 }
