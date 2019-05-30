@@ -7,7 +7,7 @@
         <h1>ALL TASKS</h1>
     </div>
     <div class="col-sm-1">
-            <button type="button" class="btn btn-primary-outline" (click)="add(); taskText.value=''">
+            <button type="button" class="btn btn-primary-outline" (click)="add(); taskText.value=''" data-toggle="tooltip" data-placement="top" title="Add new task">
                   <span> <img src="https://img.icons8.com/color/48/000000/add.png"> </span>      
             </button>
     </div>
@@ -23,6 +23,7 @@
                           <small>{{task.status}}</small>
                         </div>
                         <br>
+                        <p class="mb-1">date: {{task.creationDate | date}}</p>
                         <p class="mb-1">#{{task.tag}} id: {{task.id}}</p>
                         <div class="input-group">
                             <textarea class="form-control" aria-label="With textarea" 
@@ -41,6 +42,12 @@
       </ul>
   </div>
 </div>
+
+<script>
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
+</script>
 
 
 

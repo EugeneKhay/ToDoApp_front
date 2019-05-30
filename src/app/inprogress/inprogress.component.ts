@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../taskclass';
 import { TaskService} from '../task.service';
 
+
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+  selector: 'app-inprogress',
+  templateUrl: './inprogress.component.html',
+  styleUrls: ['./inprogress.component.css']
 })
-export class TaskComponent implements OnInit {
+export class InprogressComponent implements OnInit {
 
   tasks: Task[];
 
@@ -25,7 +26,7 @@ export class TaskComponent implements OnInit {
   }
 
   getTasks(): void {
-    this.taskService.getRealTasks()
+    this.taskService.getRealTasksForStatus('IN_PROGRESS')
     .subscribe(tasks => this.tasks = tasks);
   }
 
@@ -56,4 +57,5 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
     this.getTasks();
   }
+
 }

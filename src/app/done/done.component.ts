@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../taskclass';
 import { TaskService} from '../task.service';
+import { Task } from '../taskclass';
+
 
 @Component({
-  selector: 'app-task',
-  templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
+  selector: 'app-done',
+  templateUrl: './done.component.html',
+  styleUrls: ['./done.component.css']
 })
-export class TaskComponent implements OnInit {
+export class DoneComponent implements OnInit {
 
   tasks: Task[];
 
@@ -25,7 +26,7 @@ export class TaskComponent implements OnInit {
   }
 
   getTasks(): void {
-    this.taskService.getRealTasks()
+    this.taskService.getRealTasksForStatus('DONE')
     .subscribe(tasks => this.tasks = tasks);
   }
 
@@ -56,4 +57,5 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
     this.getTasks();
   }
+
 }

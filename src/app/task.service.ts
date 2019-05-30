@@ -30,6 +30,11 @@ export class TaskService {
     return this.http.get<Task[]>(this.taskUrl);
   }
 
+  getRealTasksForStatus(status: string): Observable<Task[]> {
+    const url = `${this.taskUrl}/${status}`;
+    return this.http.get<Task[]>(url);
+  }
+
   updateTask (task: Task | number): Observable<any> {
     const id = typeof task === 'number' ? task : task.id;
     const url = `${this.taskUrl}/${id}`;

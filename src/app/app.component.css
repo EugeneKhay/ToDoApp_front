@@ -8,3 +8,21 @@
     font-family: 'Indie Flower', cursive;
     padding: 40px;
 }
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.wrapperForFooter {
+    height: 100%;
+    flex: 1 0 auto;
+}
+.content {
+    flex: 1 0 auto;
+    padding: 10px;
+    min-height: 500px;
+    margin-bottom: 50px;
+}
+
+
