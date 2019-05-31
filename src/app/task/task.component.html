@@ -20,28 +20,51 @@
                     <div class="list-group-item list-group-item-action" *ngFor='let task of tasks'>
                         <div class="d-flex w-100 justify-content-between">
                           <h3 class="mb-1" style="max-width: 900px">{{task.text}}</h3>
-                          <small>{{task.status}}</small>
+                          <small class="task_status">{{task.status}}</small>
                         </div>
                         <br>
-                        <p class="mb-1">date: {{task.creationDate | date}}</p>
-                        <p class="mb-1">#{{task.tag}} id: {{task.id}}</p>
-                        <div class="input-group">
-                            <textarea class="form-control" aria-label="With textarea" 
-                                      [(ngModel)]="task.text" (keyup)="save(task)">
-                            </textarea>
-                            <button type="button" (click)='onSelect(task)'> 
-                                <span><img src="https://img.icons8.com/ios/50/000000/change.png" alt="Change"></span>
-                            </button>
-                            <button type="button" (click)="delete(task)">
-                                <span><img src="https://img.icons8.com/doodle/48/000000/delete-sign.png" alt="Delete"></span>
-                            </button>
+                        <div class="row">
+                          <div class="col-sm-9">
+                              <p class="mb-1">date: {{task.creationDate | date}}</p>
+                              <p class="mb-1">#{{task.tag}} id: {{task.id}}</p>
+                          </div>
+                          <div class="col-sm-3">
+                              <div class="btn-group" role="group" aria-label="Basic example">
+                                  <button type="button" class="btn" (click)="toggle(task)">
+                                      <span><img src="https://img.icons8.com/ultraviolet/40/000000/pencil.png" alt="Edit"></span>
+                                  </button>
+                                  <button type="button" class="btn" (click)='onSelect(task)'>
+                                      <span><img src="https://img.icons8.com/ios/50/000000/change.png" alt="Change"></span>
+                                  </button>
+                                  <button type="button" class="btn" (click)="delete(task)">
+                                      <span><img src="https://img.icons8.com/doodle/48/000000/delete-sign.png" alt="Delete"></span>
+                                  </button>
+                                </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                            <textarea id="input_field" [class.invisible]="task.visibility"
+                                      class="form-control" aria-label="With textarea" 
+                                      [(ngModel)]="task.text" (focusout)="save(task)">
+                            </textarea>                       
                         </div>
                     </div>
+
                 </div>
           </div>
       </ul>
   </div>
 </div>
+
+
+
+
+
+
+                          
+
+
+
 
 <script>
 $(function () {

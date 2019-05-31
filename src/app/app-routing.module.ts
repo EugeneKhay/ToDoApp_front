@@ -9,7 +9,7 @@ import { DoneComponent } from './done/done.component';
 import { DelayedComponent } from './delayed/delayed.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '/todo', pathMatch: 'full'},
   {path: 'todo', component: TaskComponent},
   {path: 'inprogress', component: InprogressComponent},
   {path: 'new', component: NewComponent},

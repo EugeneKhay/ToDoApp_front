@@ -4,4 +4,5 @@ export class Task {
     tag : string;
     status : string;
     creationDate: Date;
+    visibility: boolean = true;
 }

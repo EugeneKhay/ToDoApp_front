@@ -13,6 +13,12 @@ export class TaskComponent implements OnInit {
 
   counter = 0;
 
+  //visibility: boolean = true;
+
+  toggle(task: Task){
+      task.visibility=!task.visibility;
+      //this.visibility = task.visibility;
+  }
   
   onSelect(task1: Task) {
       if (this.counter > 2) this.counter = 0;
@@ -35,6 +41,7 @@ export class TaskComponent implements OnInit {
   // }
 
   save(task: Task): void {
+    this.toggle(task);
     this.taskService.updateTask(task)
     .subscribe(() => console.log('saved'));
   }
